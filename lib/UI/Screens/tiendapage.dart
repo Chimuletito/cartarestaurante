@@ -12,10 +12,6 @@ class Tiendapage extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
-    final screenW = MediaQuery.of(context).size.width;
-    final itemSep =  screenW > 1000 ? 15.0 : 5.0;
-    int crossItemCount = screenW > 1000 ? 2 :1 ;
-
     return Scaffold
     (
       backgroundColor: Color(0xFFFFFF),
@@ -49,11 +45,6 @@ class Tiendapage extends StatelessWidget
                 }
                 else
                 {
-                  if(snapshot.data.length==1)
-                  {
-                    crossItemCount=1;
-                  }
-
                   if(MediaQuery.of(context).size.width>1000)
                   {
                     return StaggeredGridView.countBuilder

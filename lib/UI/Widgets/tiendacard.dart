@@ -34,7 +34,6 @@ class Tiendacard extends StatelessWidget
                 (
                   placeholder: AssetImage("assets/gifs/loading.gif"),
                   fit: BoxFit.fitWidth,
-                  //height:bigscreen ? mqsize.height/2 :MediaQuery.of(context).size.height/5,
                   width: (MediaQuery.of(context).size.width>1000 ? MediaQuery.of(context).size.width/2.2 :MediaQuery.of(context).size.width  * 0.8)/1.75,
                   image: NetworkImage(comida.image),
                 ),

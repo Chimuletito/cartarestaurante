@@ -1,5 +1,6 @@
-import 'package:cartabaumlanus/Model/Categoria.dart';
 import 'package:flutter/material.dart';
+import 'package:cartabaumlanus/Model/Categoria.dart';
+
 
 class CategoriaCard extends StatelessWidget 
 {
@@ -65,8 +66,8 @@ class Card extends StatelessWidget
     var size=MediaQuery.of(context).size;
     double heightscreen=size.height;
     double widthscreen=size.width;
-    var mqsize=MediaQuery.of(context).size;
-    bool bigscreen=mqsize.width>1000;
+
+    bool bigscreen=widthscreen>1000;
 
     return Column
     (

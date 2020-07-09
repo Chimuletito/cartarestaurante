@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:cartabaumlanus/Model/comida.dart';
 import 'package:cartabaumlanus/UI/Widgets/cervezacard.dart';
-import 'package:flutter/material.dart';
 import 'package:cartabaumlanus/Firestore/FirestoreServices.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -11,10 +12,6 @@ class Cervezaspage extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
-    final screenW = MediaQuery.of(context).size.width;
-    final itemSep =  screenW > 1000 ? 15.0 : 5.0;
-    int crossItemCount = screenW > 1000 ? 2 :1 ;
-
     return Scaffold
     (
       backgroundColor: Color(0xFFFFFF),
@@ -48,35 +45,26 @@ class Cervezaspage extends StatelessWidget
                 }
                 else
                 {
-                  if(snapshot.data.length==1)
-                  {
-                    crossItemCount=1;
-                  }
-
                   if(MediaQuery.of(context).size.width>1000)
                   {
-                    return ListView
+                    return Row
                     (
-                      physics: BouncingScrollPhysics(),
                       children: 
                       [
-                        GridView.builder
+                        StaggeredGridView.countBuilder
                         (
+                          primary: false,
                           shrinkWrap: true,
                           physics: BouncingScrollPhysics(),
+                          crossAxisCount: 4,
                           itemCount: snapshot.data.length,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount
-                          (
-                            crossAxisCount: crossItemCount,
-                            crossAxisSpacing: itemSep,
-                            mainAxisSpacing: itemSep
-                          ), 
-                          itemBuilder: (context, int index)=> Center(child: Cervezacard(comida: snapshot.data[index]))
-                        ),
-                        SizedBox(height: 30)
+                          itemBuilder: (BuildContext context, int index) => Center(child: Cervezacard(comida: snapshot.data[index])),
+                          staggeredTileBuilder: (int index) => StaggeredTile.fit(2),
+                          mainAxisSpacing: 4.0,
+                          crossAxisSpacing: 4.0,
+                        )
                       ],
-                    );
-                   
+                    );   
                   }
                   else
                   {

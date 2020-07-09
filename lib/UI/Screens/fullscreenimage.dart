@@ -1,5 +1,5 @@
-import 'package:cartabaumlanus/Model/comida.dart';
 import 'package:flutter/material.dart';
+import 'package:cartabaumlanus/Model/comida.dart';
 
 class FullScreenImage extends StatelessWidget 
 {

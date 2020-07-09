@@ -11,6 +11,8 @@ class Novedadescard extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
+    bool bigscreen=MediaQuery.of(context).size.width>1000;
+
     return Column
     (
       mainAxisSize: MainAxisSize.max,
@@ -33,8 +35,7 @@ class Novedadescard extends StatelessWidget
               (
                 placeholder: AssetImage("assets/gifs/loading.gif"),
                 fit: BoxFit.fitWidth,
-                //height:bigscreen ? mqsize.height/2 :MediaQuery.of(context).size.height/5,
-                width: MediaQuery.of(context).size.width>1000 ? MediaQuery.of(context).size.width/2.2 :MediaQuery.of(context).size.width  * 0.8,
+                width: bigscreen ? MediaQuery.of(context).size.width/2.2 :MediaQuery.of(context).size.width  * 0.8,
                 image: NetworkImage(novedad.image),
               ),
             ),
@@ -43,7 +44,7 @@ class Novedadescard extends StatelessWidget
         SizedBox(height: 5),
         Container
           (
-            width: MediaQuery.of(context).size.width>1000 ? MediaQuery.of(context).size.width/2.2 :MediaQuery.of(context).size.width  * 0.8,
+            width: bigscreen ? MediaQuery.of(context).size.width/2.2 :MediaQuery.of(context).size.width  * 0.8,
             child:Column
             (
               crossAxisAlignment: CrossAxisAlignment.start,

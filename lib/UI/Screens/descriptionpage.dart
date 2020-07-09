@@ -12,10 +12,6 @@ class Description extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
-    final screenW = MediaQuery.of(context).size.width;
-    final itemSep =  screenW > 1000 ? 15.0 : 5.0;
-    int crossItemCount = screenW > 1000 ? 2 :1 ;
-
     Categoria categoriamenu=ModalRoute.of(context).settings.arguments;
 
     return Scaffold
@@ -51,11 +47,6 @@ class Description extends StatelessWidget
                 }
                 else
                 {
-                  if(snapshot.data.length==1)
-                  {
-                    crossItemCount=1;
-                  }
-
                   if(MediaQuery.of(context).size.width>1000)
                   {   
                     return StaggeredGridView.countBuilder

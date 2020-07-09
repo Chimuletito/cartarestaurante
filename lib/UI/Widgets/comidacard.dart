@@ -10,7 +10,9 @@ class Comidacard extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
-    bool bigscreen=MediaQuery.of(context).size.width>1000;
+    var size=MediaQuery.of(context).size;
+    double widthscreen=size.width;
+    bool bigscreen=widthscreen>1000;
 
     return Container
     (
@@ -36,8 +38,7 @@ class Comidacard extends StatelessWidget
                 (
                   placeholder: AssetImage("assets/gifs/loading.gif"),
                   fit: BoxFit.fitWidth,
-                  //height:bigscreen ? mqsize.height/2 :MediaQuery.of(context).size.height/5,
-                  width: bigscreen ? MediaQuery.of(context).size.width/2.20 :MediaQuery.of(context).size.width  * 0.8,
+                  width: bigscreen ? widthscreen / 2.20 : widthscreen  * 0.8,
                   image: NetworkImage(comida.image),
                 ),
               ),
@@ -46,7 +47,7 @@ class Comidacard extends StatelessWidget
           SizedBox(height: 5),
           Container
             (
-              width: bigscreen ? MediaQuery.of(context).size.width/2.20 :MediaQuery.of(context).size.width  * 0.8,
+              width:  bigscreen ? widthscreen / 2.20 : widthscreen  * 0.8,
               child:Column
               (
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -10,6 +10,10 @@ class Cervezacard extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
+    var size=MediaQuery.of(context).size;
+    double widthscreen=size.width;
+    bool bigscreen=widthscreen>1000;
+    
     return Column
     (
       mainAxisSize: MainAxisSize.max,
@@ -32,8 +36,7 @@ class Cervezacard extends StatelessWidget
               (
                 placeholder: AssetImage("assets/gifs/loading.gif"),
                 fit: BoxFit.fitWidth,
-                //height:bigscreen ? mqsize.height/2 :MediaQuery.of(context).size.height/5,
-                width: MediaQuery.of(context).size.width>1000 ? MediaQuery.of(context).size.width/2.25 :MediaQuery.of(context).size.width  * 0.8,
+                width: bigscreen ? widthscreen/2.25 : widthscreen  * 0.8,
                 image: NetworkImage(comida.image),
               ),
             ),
@@ -42,20 +45,13 @@ class Cervezacard extends StatelessWidget
         SizedBox(height: 5),
         Container
           (
-            width: MediaQuery.of(context).size.width>1000 ? MediaQuery.of(context).size.width/2.25 :MediaQuery.of(context).size.width  * 0.8,
+            width: bigscreen ? widthscreen/2.25 : widthscreen  * 0.8,
             child:Column
             (
               crossAxisAlignment: CrossAxisAlignment.start,
               children: 
               [
-                Row
-                (
-                  children: 
-                  [
-                   Text(comida.nombre,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
-                
-                  ],
-                ),
+                Text(comida.nombre,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
                 SizedBox(height: 5),
                 Text(comida.descripcion),    
                 SizedBox(height: 5),  
