@@ -59,6 +59,7 @@ class Cervezacard extends StatelessWidget
               ],
             )
           ),
+          SizedBox(height: bigscreen ? 60 : 0),
        ],
     );
   }

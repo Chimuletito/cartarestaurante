@@ -84,7 +84,7 @@ class CategoriaList extends StatelessWidget
 
     Categoria novedades=Categoria();
     novedades.name="Novedades";
-    novedades.imagePath="assets/imgs/Locro.jpg";
+    novedades.imagePath="assets/imgs/Novedades.jpeg";
 
     Categoria tienda=Categoria();
     tienda.name="Tienda";

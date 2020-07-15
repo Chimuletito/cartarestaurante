@@ -47,23 +47,17 @@ class Cervezaspage extends StatelessWidget
                 {
                   if(MediaQuery.of(context).size.width>1000)
                   {
-                    return Row
+                    return StaggeredGridView.countBuilder
                     (
-                      children: 
-                      [
-                        StaggeredGridView.countBuilder
-                        (
-                          primary: false,
-                          shrinkWrap: true,
-                          physics: BouncingScrollPhysics(),
-                          crossAxisCount: 4,
-                          itemCount: snapshot.data.length,
-                          itemBuilder: (BuildContext context, int index) => Center(child: Cervezacard(comida: snapshot.data[index])),
-                          staggeredTileBuilder: (int index) => StaggeredTile.fit(2),
-                          mainAxisSpacing: 4.0,
-                          crossAxisSpacing: 4.0,
-                        )
-                      ],
+                      primary: false,
+                      shrinkWrap: true,
+                      physics: BouncingScrollPhysics(),
+                      crossAxisCount: 4,
+                      itemCount: snapshot.data.length,
+                      itemBuilder: (BuildContext context, int index) => Center(child: Cervezacard(comida: snapshot.data[index])),
+                      staggeredTileBuilder: (int index) => StaggeredTile.fit(2),
+                      mainAxisSpacing: 4.0,
+                      crossAxisSpacing: 4.0,
                     );   
                   }
                   else
@@ -136,7 +130,7 @@ class AppBarCustom extends StatelessWidget
         (
           children: 
           [
-            IconButton(icon: Icon(FontAwesomeIcons.arrowLeft),color: Colors.white,iconSize: 35,onPressed: (){Navigator.pop(context);}),
+            IconButton(icon: Icon(FontAwesomeIcons.arrowLeft),color: Colors.white,iconSize: 35,onPressed: (){Navigator.pushNamed(context,"menu");}),
             Row
             (
               children: 

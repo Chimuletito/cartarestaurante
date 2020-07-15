@@ -108,7 +108,7 @@ class AppBarCustom extends StatelessWidget
         
         Hero
         (
-          tag: "assets/imgs/Locro.jpg",
+          tag: "assets/imgs/Novedades.jpeg",
           child: ClipRRect 
           (
             borderRadius: BorderRadius.circular(0),
@@ -121,7 +121,7 @@ class AppBarCustom extends StatelessWidget
                   fit: BoxFit.fitWidth,
                   width: double.infinity,
                   height: size.height/5.5,
-                  image: AssetImage("assets/imgs/Locro.jpg"),
+                  image: AssetImage("assets/imgs/Novedades.jpeg"),
                 ),
               ],
             )

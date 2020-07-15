@@ -43,7 +43,7 @@ class Novedadescard extends StatelessWidget
         ),
         SizedBox(height: 5),
         Container
-          (
+        (
             width: bigscreen ? MediaQuery.of(context).size.width/2.2 :MediaQuery.of(context).size.width  * 0.8,
             child:Column
             (
@@ -62,6 +62,7 @@ class Novedadescard extends StatelessWidget
               ],
             )
           ),
+          SizedBox(height: bigscreen ? 60 : 0),
        ],
     );
   }
