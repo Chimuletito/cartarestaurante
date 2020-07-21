@@ -11,23 +11,29 @@ class CategoriaCard extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
+    String nombre=categoriaMenu.name;
+
     return GestureDetector
     (
       onTap:()
       {
-        if(categoriaMenu.name=="Tienda")
+        if(nombre=="Promos")
+        {
+          Navigator.pushNamed(context, "Promos",arguments: categoriaMenu);
+        }
+        if(nombre=="Tienda")
         {
           Navigator.pushNamed(context,"Tienda",arguments: categoriaMenu);
         }
-        if(categoriaMenu.name=="Cervezas")
+        if(nombre=="Cervezas")
         {
           Navigator.pushNamed(context,"Cervezas",arguments: categoriaMenu);
         }
-        if(categoriaMenu.name=="Novedades")
+        if(nombre=="Novedades")
         {
           Navigator.pushNamed(context,"Novedades",arguments: categoriaMenu);
         }
-        if(categoriaMenu.name!="Cervezas" && categoriaMenu.name !="Novedades" && categoriaMenu.name != "Tienda")
+        if(nombre != "Cervezas" && nombre !="Novedades" && nombre != "Tienda" && nombre != "Promos")
         {
           Navigator.pushNamed(context,"lista",arguments: categoriaMenu);
         }

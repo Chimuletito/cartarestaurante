@@ -32,14 +32,27 @@ class HomePage extends StatelessWidget
           title: Text("Menú Baum Lanús"),
         ), 
       ),
-      body:ListView
+      body:Stack
       (
-        physics: BouncingScrollPhysics(),
         children: 
         [
-          CategoriaList()
-        ], 
-      ) ,
+          Positioned.fill
+          (  //
+            child: Image(
+              image: AssetImage('assets/imgs/bg.jpg'),
+              fit : BoxFit.fill,
+           ),
+          ), 
+          ListView
+          (
+            physics: BouncingScrollPhysics(),
+            children: 
+            [
+              CategoriaList()
+            ], 
+          ) ,
+        ],
+      )
     );    
   }
 }
@@ -52,7 +65,7 @@ class CategoriaList extends StatelessWidget
   {
     var cerveza= Categoria();
     cerveza.name="Cervezas";
-    cerveza.imagePath="assets/imgs/Cervezas.jpg";
+    cerveza.imagePath="assets/imgs/logobaum.png";
 
     var tentempies=Categoria();
     tentempies.name="Tentempies";
@@ -94,6 +107,12 @@ class CategoriaList extends StatelessWidget
     var tablas=Categoria();
     tablas.name="Tablas";
     tablas.imagePath="assets/imgs/Tabla.jpg";
+
+    Categoria promos=Categoria();
+    promos.name="Promos";
+    promos.imagePath="assets/imgs/Promos.jpeg";
+
+
     return Column
     (
       children: 
@@ -103,7 +122,7 @@ class CategoriaList extends StatelessWidget
         FilaCard(primerCategoria: entrepanes, segundaCategoria: principales),
         FilaCard(primerCategoria: tablas,segundaCategoria: ensaladas),
         FilaCard(primerCategoria: bebidaswithoutalcohol,segundaCategoria: tienda),
-        CategoriaSola(categoria: novedades,)
+        FilaCard(primerCategoria: novedades, segundaCategoria: promos)
       ],
     );
   }
